@@ -9,7 +9,12 @@ const variantSchema=new Schema<Tvariants>({
         type:String,
         required:[true,"Value is required"]
     }
-})
+}
+,
+{
+_id:false
+}
+)
 const inventorySchema=new Schema<Tinventory>({
     quantity:{
         type:Number,
@@ -19,7 +24,12 @@ const inventorySchema=new Schema<Tinventory>({
         type:Boolean,
         required:[true,"inStock is required"]
     }
-})
+}
+,
+{
+        _id:false
+}
+)
 const productSchema=new Schema<TProduct>({
     name:{
         type:String,
