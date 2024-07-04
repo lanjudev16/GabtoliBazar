@@ -1,3 +1,4 @@
+import AppError from "../../errors/AppError";
 import { TProduct } from "./products.interface"
 import productModel from "./products.model"
 
@@ -5,8 +6,16 @@ const createProduct=async(payLoad:TProduct)=>{
     const result=await productModel.create(payLoad)
     return result;
 }
-const retriveProduct=async()=>{
-    const result=await productModel.find({},{__v:0}).lean()
+const retriveProduct=async(query:Record<string,unknown>)=>{
+    let searchTerm='';
+    if(query?.searchTerm){
+        searchTerm=query?.searchTerm as string;
+    }
+    const result=await productModel.find({
+        $or:['name','description','category'].map((field)=>({
+            [field]:{$regex:searchTerm,$options:'i'}
+        }))
+    },{__v:0}).lean()
     return result;
 }
 const retriveSingleProduct=async(payLoad:string)=>{
@@ -23,8 +32,12 @@ const updateProduct=async(payLoad:Partial<TProduct>,productId:string)=>{
 }
 const deleteProduct=async(productId:string)=>{
     const result=await productModel.findByIdAndDelete(productId)
+    if(!result){
+        throw new AppError(404,"Product not found")
+    }
     return null;
 }
+
 export const productService={
     createProduct,
     retriveProduct,
