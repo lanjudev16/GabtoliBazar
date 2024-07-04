@@ -8,5 +8,6 @@ router.post('/',validateRequest(productValidation.porductValidateSchema),product
 router.get('/',productController.retriveProduct)
 router.get('/:productId',productController.retriveSingleProduct)
 router.put('/:productId',validateRequest(productValidation.porductUpdateValidateSchema),productController.updateProduct)
+router.delete('/:productId',productController.deleteProduct)
 const productRouter=router
 export default productRouter;

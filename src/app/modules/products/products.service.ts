@@ -21,9 +21,14 @@ const updateProduct=async(payLoad:Partial<TProduct>,productId:string)=>{
     })
     return result;
 }
+const deleteProduct=async(productId:string)=>{
+    const result=await productModel.findByIdAndDelete(productId)
+    return null;
+}
 export const productService={
     createProduct,
     retriveProduct,
     retriveSingleProduct,
-    updateProduct
+    updateProduct,
+    deleteProduct
 }
