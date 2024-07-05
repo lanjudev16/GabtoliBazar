@@ -5,5 +5,6 @@ import orderValidateSchema from "./orders.validate";
 
 const router=Router()
 router.post('/',validateRequest(orderValidateSchema),orderController.createOrder)
+router.get('/',orderController.retriveOrder)
 const orderRouter=router
 export default orderRouter;

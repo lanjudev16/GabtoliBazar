@@ -13,6 +13,28 @@ const createOrder=catchAsync(async(req:Request,res:Response)=>{
         data:result
     })
 })
+const retriveOrder=catchAsync(async(req:Request,res:Response)=>{
+    
+    const result=await orderService.retriveOrder(req.query)
+    if(req.query.email){
+        sendResponse(res,{
+            statusCode:200,
+            success:true,
+            message:"Orders fetched successfully for user email!",
+            data:result
+        })
+    }else{
+    sendResponse(res,{
+        statusCode:200,
+        success:true,
+        message:"Orders fetched successfully!",
+        data:result
+    })
+    }
+
+})
+
 export const orderController={
-    createOrder
+    createOrder,
+    retriveOrder,
 }
