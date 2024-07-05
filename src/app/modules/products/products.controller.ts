@@ -4,7 +4,6 @@ import { productService } from "./products.service"
 import sendResponse from "../../utils/sendResponse"
 
 const createProduct=catchAsync(async(req:Request,res:Response)=>{
-    const body=req.body
     const result=await productService.createProduct(req.body)
     sendResponse(res,{
         statusCode:200,

@@ -1,5 +1,4 @@
 import AppError from "../../errors/AppError"
-import { TProduct } from "../products/products.interface"
 import productModel from "../products/products.model"
 import { TOrder } from "./orders.interface"
 import orderModel from "./orders.model"
