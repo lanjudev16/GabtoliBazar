@@ -1,8 +1,8 @@
 ## Ecommerce backend project
 
-### step 1. Open your terminal and paste in your terminal and hit enter button -> git clone https://github.com/lanjudev16/OrderManagement
+### step 1. Open your terminal and paste in your terminal and hit enter button -> git clone https://github.com/lanjudev16/GabtoliBazar
 
-### step 2. Copy this command and paste in your terminal and hit enter button -> cd OrderManagement
+### step 2. Copy this command and paste in your terminal and hit enter button -> cd GabtoliBazar
 
 ### step 3. Copy this command and paste in your terminal and hit enter button -> npm install
 
