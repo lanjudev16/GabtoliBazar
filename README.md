@@ -1,4 +1,4 @@
-## order management backend project
+## Ecommerce backend project
 
 ### step 1. Open your terminal and paste in your terminal and hit enter button -> git clone https://github.com/lanjudev16/OrderManagement
 
